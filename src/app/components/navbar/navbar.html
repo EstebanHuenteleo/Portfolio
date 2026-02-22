@@ -1,0 +1,25 @@
+<header class="topheader">
+  <nav class="topnav">
+    <a href="#" class="logo">
+      <img height="50" width="50" src="logo.jpg" alt="logo">
+      <div>Esteban Huenteleo</div>
+    </a>
+    <button class="open-menu" aria-label="Abrir menú" (click)="toggleMenu()">
+      <img src="hamburger-icon.svg" alt="abrir menú">
+    </button>
+    <ul class="menu" [class.menu_opened]="menuOpen()">
+      <button class="close-menu" aria-label="Cerrar menú" (click)="toggleMenu()">
+        <img src="close-icon.svg" alt="cerrar menú">
+      </button>
+      @for (link of navLinks; track link.id) {
+        <li>
+          <a [href]="'#' + link.id"
+             [class.selected]="activeSection() === link.id"
+             (click)="closeMenu()">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</header>

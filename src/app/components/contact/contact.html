@@ -1,0 +1,92 @@
+<section class="contact" id="contact">
+  <h2 class="contact-title" appFadeIn="up">Contacto</h2>
+  <p class="contact-subtitle" appFadeIn="up">
+    Estoy abierto a nuevas oportunidades laborales. Si buscas un desarrollador backend
+    comprometido para tu equipo, conversemos.
+  </p>
+
+  <div class="contact-grid">
+    <!-- Formulario -->
+    <div class="contact-form-wrapper" appFadeIn="left">
+      <h3 class="form-title">Envíame un mensaje</h3>
+      @if (sent()) {
+        <div class="success-msg">
+          <span class="success-icon">&#10003;</span>
+          <p>Mensaje enviado correctamente.</p>
+          <p class="success-sub">Te responderé lo antes posible.</p>
+        </div>
+      } @else {
+        <form class="contact-form" (ngSubmit)="sendEmail()">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input
+              id="name"
+              type="text"
+              [(ngModel)]="formData.name"
+              name="name"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              [(ngModel)]="formData.email"
+              name="email"
+              placeholder="tu@email.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              [(ngModel)]="formData.message"
+              name="message"
+              placeholder="Cuéntame sobre la oportunidad..."
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          @if (error()) {
+            <p class="error-msg">Error al enviar. Intenta de nuevo o escríbeme directo al email.</p>
+          }
+          <button type="submit" class="submit-btn" [disabled]="sending()">
+            @if (sending()) {
+              <span class="spinner"></span> Enviando...
+            } @else {
+              Enviar mensaje
+            }
+          </button>
+        </form>
+      }
+    </div>
+
+    <!-- Info de contacto -->
+    <div class="contact-info" appFadeIn="right">
+      <h3 class="info-title">También puedes encontrarme en</h3>
+
+      <div class="contact-links">
+        <a href="https://github.com/EstebanHuenteleo" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span class="link-icon">&#60;/&#62;</span>
+          <div class="link-content">
+            <span class="link-label">GitHub</span>
+            <span class="link-value">EstebanHuenteleo</span>
+          </div>
+          <span class="link-arrow">&#8594;</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/esteban-huenteleo/" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <span class="link-icon">in</span>
+          <div class="link-content">
+            <span class="link-label">LinkedIn</span>
+            <span class="link-value">esteban-huenteleo</span>
+          </div>
+          <span class="link-arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="skills" id="skills">
+  <h2 class="skills-title" appFadeIn="up">Habilidades</h2>
+  <div class="skills-grid">
+    @for (category of categories; track category.name; let isEven = $even) {
+      <div class="skills-category" [appFadeIn]="isEven ? 'left' : 'right'">
+        <div class="category-header">
+          <span class="category-icon">{{ category.icon }}</span>
+          <h3 class="category-name">{{ category.name }}</h3>
+        </div>
+        <ul class="skills-list">
+          @for (skill of category.skills; track skill) {
+            <li class="skills-skill">{{ skill }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>

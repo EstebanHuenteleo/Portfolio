@@ -1,0 +1,70 @@
+<div class="cv-page">
+  <button class="print-btn" (click)="print()">Guardar como PDF</button>
+
+  <div class="cv">
+    <!-- Header -->
+    <header class="cv-header">
+      <div class="cv-header-info">
+        <h1 class="cv-name">Esteban Huenteleo</h1>
+        <p class="cv-role">Desarrollador Backend</p>
+      </div>
+      <div class="cv-contact">
+        <span>estebansubiabre1&#64;gmail.com</span>
+        <span>github.com/EstebanHuenteleo</span>
+        <span>linkedin.com/in/esteban-huenteleo</span>
+      </div>
+    </header>
+
+    <!-- Perfil -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Perfil</h2>
+      <p class="cv-text">
+        Desarrollador Backend con experiencia Full Stack. Especializado en C#, .NET y SQL Server,
+        con más de 3 años construyendo soluciones escalables y de alto impacto.
+      </p>
+    </section>
+
+    <!-- Experiencia -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Experiencia Laboral</h2>
+      @for (exp of experiences; track exp.company) {
+        <div class="cv-experience">
+          <div class="cv-exp-header">
+            <div>
+              <strong class="cv-exp-position">{{ exp.position }}</strong>
+              <span class="cv-exp-company">{{ exp.company }}</span>
+            </div>
+            <span class="cv-exp-date">{{ exp.date }}</span>
+          </div>
+          <p class="cv-text">{{ exp.description }}</p>
+        </div>
+      }
+    </section>
+
+    <!-- Habilidades -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Habilidades Técnicas</h2>
+      <div class="cv-skills-grid">
+        @for (cat of skillCategories; track cat.name) {
+          <div class="cv-skill-category">
+            <strong>{{ cat.name }}:</strong>
+            <span>{{ cat.skills.join(', ') }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Educación -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Educación</h2>
+      <div class="cv-experience">
+        <div class="cv-exp-header">
+          <div>
+            <strong class="cv-exp-position">Analista Programador</strong>
+            <span class="cv-exp-company">Instituto Profesional DUOC UC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

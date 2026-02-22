@@ -1,0 +1,40 @@
+<section class="experiences" id="experience">
+  <div class="wave-top">
+    <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 22C120 44 240 54 360 48C480 42 600 20 720 10C840 0 960 2 1080 16C1200 30 1320 50 1380 54L1440 54L1440 54L0 54Z" fill="#124F88"/>
+    </svg>
+  </div>
+  <div class="experiences-body">
+    <h2 class="experiences-title" appFadeIn="up">Experiencia</h2>
+    <div class="experiences-grid">
+      @for (exp of experiences; track exp.company; let i = $index; let isEven = $even) {
+        @if (isEven) {
+          <div class="empty"></div>
+          <div class="line"></div>
+          <div class="experience" appFadeIn="right">
+            <div class="experience-date">{{ exp.date }}</div>
+            <div class="experience-company">{{ exp.company }}</div>
+            <div class="experience-position">{{ exp.position }}</div>
+            <div class="experience-type">{{ exp.type }}</div>
+            <div class="experience-description">{{ exp.description }}</div>
+          </div>
+        } @else {
+          <div class="experience experience_left" appFadeIn="left">
+            <div class="experience-date">{{ exp.date }}</div>
+            <div class="experience-company">{{ exp.company }}</div>
+            <div class="experience-position">{{ exp.position }}</div>
+            <div class="experience-type">{{ exp.type }}</div>
+            <div class="experience-description">{{ exp.description }}</div>
+          </div>
+          <div class="line"></div>
+          <div class="empty"></div>
+        }
+      }
+    </div>
+  </div>
+  <div class="wave-bottom">
+    <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 0L1440 0L1440 32C1320 10 1200 0 1080 6C960 12 840 34 720 44C600 54 480 52 360 38C240 24 120 4 60 0L0 0Z" fill="#124F88"/>
+    </svg>
+  </div>
+</section>
